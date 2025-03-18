@@ -1,3 +1,9 @@
 body {
+	margin: 2em;
+}
+
+#demo {
+	border: 1px solid black;
 	padding: 1em;
+	margin: 1em;
 }
