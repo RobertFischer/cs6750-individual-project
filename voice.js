@@ -35,7 +35,8 @@ function populateVoices() {
 	for(let i = 0; i < voices.length; i++) {
 		let v = voices[i];
 		if(v.lang == "en-US" || v.lang == "en-GB") {
-			let option = $("<option " + (v.name == voice.name ? "selected" : "") + " value=\"" + v.name + "\">" + v.name + "</option>");
+			console.info("Adding voice", v.name, v.lang, v.voiceURI);
+			let option = $("<option " + (v.lang == voice.lang && v.name == voice.name ? "selected" : "") + " value=\"" + i + "\">" + v.name + "</option>");
 			$voices.append(option);
 		}
 	}
@@ -44,22 +45,17 @@ function populateVoices() {
 $.when($.ready).then(function() {
 	let $voices = $("select#voices");
 	$voices.change(function() {
-		let newVoiceName = $voices.prop("value");
-		console.info("Change fired on voices", newVoiceName);
+		let newVoiceIdx = $voices.prop("value");
+		console.info("Change fired on voices", newVoiceIdx);
 		let voices = window.speechSynthesis.getVoices();
-		for(let i = 0; i < voices.length; i++) {
-			if(voices[i].name == newVoiceName) {
-				console.info("Updating voice");
-				voice = voices[i];
-				var utter = new SpeechSynthesisUtterance("Hello, I am " + voice.name);
-				utter.lang = "en-US";
-				utter.volume = 0.5;
-				utter.pitch = 0;
-				utter.voice = voice;
-				window.speechSynthesis.speak(utter);
-				break;
-			}
-		}
+		voice = voices[parseInt(newVoiceIdx)];
+		console.info("Updating voice");
+		var utter = new SpeechSynthesisUtterance("Hello, I am " + voice.name);
+		utter.lang = "en-US";
+		utter.volume = 0.5;
+		utter.pitch = 0;
+		utter.voice = voice;
+		window.speechSynthesis.speak(utter);
 	});
 	populateVoices();
 	window.speechSynthesis.addEventListener("voiceschanged", populateVoices);
