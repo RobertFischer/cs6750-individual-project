@@ -32,6 +32,10 @@ function populateVoices() {
 
 	let $voices = $("select#voices");
 	$voices.empty();
+	if(voice == null || voices.length <= 0) {
+		$voices.append("<option selected>No text-to-speech voices found.</option>");
+		return;
+	}
 	for(let i = 0; i < voices.length; i++) {
 		let v = voices[i];
 		if(v.lang == "en-US" || v.lang == "en-GB") {

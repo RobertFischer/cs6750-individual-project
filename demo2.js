@@ -61,6 +61,11 @@ $.when($.ready).then(function() {
 	}
 
 	function tryRun() {
+		if(voice == null) {
+			$demo.html("<p class=\"lead\">Need to load a voice.</p>");
+			_.delay(tryRun, 1000);
+			return;
+		}
 		if(!episode1Ready || !episode2Ready) {
 			_.delay(tryRun, 1000);
 			return;
