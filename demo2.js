@@ -67,15 +67,15 @@ $.when($.ready).then(function() {
 	}
 
 	function tryRun() {
-		if(voice == null) {
-			$demo.addClass("disabled");
-			$demo.html("<p class=\"lead\">Need to load a voice.</p>");
-			_.delay(tryRun, 250);
-			return;
-		}
 		if(!episode1Ready || !episode2Ready) {
 			$demo.addClass("disabled");
 			_.delay(tryRun, 250);
+			return;
+		}
+		if(voice == null) {
+			$demo.addClass("disabled");
+			$demo.html("<p class=\"lead\">Need to load a voice.</p>");
+			_.delay(tryRun, 1000);
 			return;
 		}
 		$demo.removeClass("disabled");
