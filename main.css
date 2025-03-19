@@ -2,8 +2,19 @@ body {
 	margin: 2em;
 }
 
-#demo {
-	border: 1px solid black;
-	padding: 1em;
-	margin: 1em;
+.demo {
+	display: inline-block;
+	border: 1px solid silver;
+	padding: 2em;
+	margin-bottom: 2em;
+}
+
+.demo p {
+	margin: 0;
+	padding: 0;
+}
+
+.demo label {
+	padding-left: 0.5em;
+	font-weight: bold;
 }

@@ -19,7 +19,9 @@
 		<!-- Personal JavaScript -->
 		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-		<script src="./main.js"></script>
+		<script src="./voice.js"></script>
+		<script src="./demo1.js"></script>
+		<script src="./demo2.js"></script>
 
 	</head>
 	<body>
@@ -28,21 +30,29 @@
 
 		<p>This is a prototype that explores the user experience at the moment when one podcast episode shifts to another.</p>
 
-		<p>
-		This prototype specifically focuses on <strong>episodic</strong> podcasts, which are podcasts where each episode focuses on a distinctive topic.  (This is in contrast to serialized podcasts, where each episode builds on the previous episodes.)
-		</p>
-
 		<p>Thanks to the <a href="https://www.historicalblindness.com/">Historical Blindness</a> podcast for collaborating with this project.</p>
 
 		<h2>Interactive Demo</h2>
 		<p class="lead">
-		In this demo, you will hear the end of one podcast episode in a series and the start of another, with an intermission voice
+		<strong>NOTE:</strong> The voice is a text-to-speech voice provided by your browser, so do not factor that into your consideration.
+		</p>
+		<label for="voices">Configure your voice:</label>
+		<select id="voices">
+		</select>
+
+		<h3>Moving Between Episodes in a Series</h3>
+		<p>
+		In this demo, you will hear the end of one podcast episode in a series and the start of another in the same series, with an intermission voice
 		announcing the next episode.
 		</p>
+		<div class="demo" id="demo1"></div>
+
+		<h3>Moving Between Podcasts</h3>
 		<p>
-		The voice is the default voice for your computer, so do not consider that as a part of your feedback.
+		In this demo, you will hear the last episode of one podcast and the start of an episode of a different podcast, with an intermission voice
+		announcing the next podcast and episode.
 		</p>
-		<div id="demo"></div>
+		<div class="demo" id="demo2"></div>
 
 		<h2>Feedback</h2>
 		<p class="lead">
