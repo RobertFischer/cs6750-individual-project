@@ -1,7 +1,6 @@
 $.when($.ready).then(function() {
-	$(".demo").addClass("disabled");
-
 	var $demo = $("#demo2");
+	$demo.addClass("disabled");
 	$demo.html("<p>Loading episodes</p>");
 
 	var episode1Ready = false;
@@ -56,25 +55,30 @@ $.when($.ready).then(function() {
 					}
 					_.delay(function() { 
 						episode2.pause(); 
-						tryRun();
 					}, 20 * 1000);
 				}, 2000);
 			});
 			_.delay(function() { window.speechSynthesis.speak(utter); }, 1000);
 		});
+		$(episode2).one("pause", function() {
+			$(".demo").removeClass("disabled");
+			tryRun();
+		});
 	}
 
 	function tryRun() {
 		if(voice == null) {
+			$demo.addClass("disabled");
 			$demo.html("<p class=\"lead\">Need to load a voice.</p>");
 			_.delay(tryRun, 1000);
 			return;
 		}
 		if(!episode1Ready || !episode2Ready) {
+			$demo.addClass("disabled");
 			_.delay(tryRun, 1000);
 			return;
 		}
-		$(".demo").removeClass("disabled");
+		$demo.removeClass("disabled");
 		$demo.html("<p class=\"lead\"><i id=\"play\" class=\"fa-solid fa-2xl fa-play\"></i><label>Play the Demo!</label></p>").one("click", doRun);
 	}
 
