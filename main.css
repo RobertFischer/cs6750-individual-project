@@ -6,6 +6,7 @@ body {
 .demo {
 	display: inline-block;
 	border: 1px solid silver;
+	border-radius: 4em;
 	padding: 2em;
 	margin-bottom: 2em;
 }
