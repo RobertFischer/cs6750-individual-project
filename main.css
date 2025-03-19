@@ -1,5 +1,6 @@
 body {
 	margin: 2em;
+	background: FloralWhite;
 }
 
 .demo {
@@ -17,4 +18,9 @@ body {
 .demo label {
 	padding-left: 0.5em;
 	font-weight: bold;
+}
+
+select#voices {
+	display: inline-block;
+	width: auto;
 }
