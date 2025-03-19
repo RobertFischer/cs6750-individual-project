@@ -14,6 +14,12 @@ function populateVoices() {
 			}
 		}
 		for(let i = 0; i < voices.length; i++) {
+			if(voices[i].name == "Samantha") {
+				console.info("Setting default voice: ", voices[i].name);
+				voice = voices[i];
+			}
+		}
+		for(let i = 0; i < voices.length; i++) {
 			if(voices[i].name == "Google US English") {
 				console.info("Setting default voice: ", voices[i].name);
 				voice = voices[i];
