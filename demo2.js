@@ -1,4 +1,6 @@
 $.when($.ready).then(function() {
+	$(".demo").addClass("disabled");
+
 	var $demo = $("#demo2");
 	$demo.html("<p>Loading episodes</p>");
 
@@ -25,9 +27,11 @@ $.when($.ready).then(function() {
 	});
 
 	function doRun() {
+		$(".demo").addClass("disabled");
+
 		var $play = $("#play", $demo);
 		$play.addClass("fa-beat");
-		$("label", $demo).empty();
+		$("label", $demo).text("Playing!");
 
 		episode2.currentTime = 0;
 		episode2.volume = 0.5;
@@ -70,6 +74,7 @@ $.when($.ready).then(function() {
 			_.delay(tryRun, 1000);
 			return;
 		}
+		$(".demo").removeClass("disabled");
 		$demo.html("<p class=\"lead\"><i id=\"play\" class=\"fa-solid fa-2xl fa-play\"></i><label>Play the Demo!</label></p>").one("click", doRun);
 	}
 
