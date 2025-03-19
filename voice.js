@@ -11,18 +11,21 @@ function populateVoices() {
 			if(voices[i].default) {
 				console.info("Setting default voice: ", voices[i].name);
 				voice = voices[i];
+				break;
 			}
 		}
 		for(let i = 0; i < voices.length; i++) {
 			if(voices[i].name == "Samantha") {
 				console.info("Setting default voice: ", voices[i].name);
 				voice = voices[i];
+				break;
 			}
 		}
 		for(let i = 0; i < voices.length; i++) {
 			if(voices[i].name == "Google US English") {
 				console.info("Setting default voice: ", voices[i].name);
 				voice = voices[i];
+				break;
 			}
 		}
 	}
@@ -54,6 +57,7 @@ $.when($.ready).then(function() {
 				utter.pitch = 0;
 				utter.voice = voice;
 				window.speechSynthesis.speak(utter);
+				break;
 			}
 		}
 	});
